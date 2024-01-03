@@ -14,4 +14,5 @@ class Scene:
     def afficher(self):
         for dialogue in self.dialogues:
             dialogue.afficher()
+        self.nextScene.afficher()
     

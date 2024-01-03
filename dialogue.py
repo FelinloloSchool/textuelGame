@@ -11,15 +11,35 @@ class Dialog:
             self.nextDialogue.afficher()
         else:
             self.scene.nextScene.afficher()
-            
+
 class Choice:
     def __init__(self, text, personnage, options):
+        """
+        Initializes a Choice object with the given text, character, and options.
+
+        Args:
+            text (str): The text of the choice.
+            personnage (str): The character speaking the choice.
+            options (list): A list of options available for the choice. Each option is a list containing the text of the option and the next dialogue or scene.
+
+        Returns:
+            None
+        """
         self.text = text
         self.personnage = personnage
         self.options = options
-        #self.options = [[Texte, nextScene], [Texte, nextScene], [Texte, nextScene]]
+        #self.options = [[Texte, nextDialogue], [Texte, nextScene], [Texte, nextScene]]
 
     def afficher(self):
+        """
+        Displays the choice and prompts the user to select an option.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
         print(self.personnage + " : " + self.text + "\n" + "Choisissez une option :")
         i = 1
         for option in self.options:
@@ -27,4 +47,3 @@ class Choice:
             i += 1
         choix = int(input("\nVotre choix : "))
         self.options[choix - 1][1].afficher()
-
